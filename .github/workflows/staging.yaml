@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    environment: staging
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -36,4 +36,4 @@ jobs:
             docker pull prima101112/test-vite-vue:latest
             docker stop staging-test || true
             docker rm staging-test || true
-            docker run -d --name staging-test -p 80:80 prima101112/test-vite-vue:latest
+            docker run -d --name staging-test -p 8979:8979 prima101112/test-vite-vue:latest
