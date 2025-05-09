@@ -6,7 +6,7 @@ on:
       - staging
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     environment: staging
     steps:
@@ -25,10 +25,7 @@ jobs:
           context: .
           push: true
           tags: prima101112/test-vite-vue:latest
-  deploy:
-    runs-on: ubuntu-latest
-    environment: staging
-    steps:
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
